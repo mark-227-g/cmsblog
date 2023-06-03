@@ -1,0 +1,55 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <nav class="custom-navbar">
+        <ul class="custom-navbar-nav">
+          <li class="custom-nav-item">
+            <a class="custom-nav-link" href="/event">Home</a>
+          </li>
+          <li class="custom-nav-item">
+            <a class="custom-nav-link" href="/savedevents">Saved Events</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <form id="searchForm" class="container-fluid">
+      <input id="zipcodeInput" type="text" placeholder="zipcode" />
+      <input id="eventDateInput" type="text" placeholder="mm/dd/yyyy" />
+      <button id="searchEventButton" type="submit">Search</button>
+    </form>
+  </div>
+  <div class="row">
+    <div class="list-group overflow-auto col-sm-7 col-md-7 col-lg-7">
+      <ul id="stellarEventList" class="list-group">
+        <!-- loop through savedEvents and create list item -->
+        {{#each savedEvents as |savedEvent|}}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <div class="stellarEvent" width="100%">{{savedEvent.stellarEvent.description}}</div>
+          <div class="stellarEventPhoto" width="100%" style="display: none;">{{savedEvent.stellarEvent.photo}}</div>
+          <div class="stellarEventInfo" width="100%" style="display: none;">{{savedEvent.stellarEvent.info}}</div>
+          <span class="float-right">
+            <button class="viewButton" value="{{savedEvent.id}}"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <button class="removeButton" value="{{savedEvent.id}}"><i class="fa-solid fa-trash"></i></button>
+            <button class="calendarButton" value="{{savedEvent.id}}"><i class="fa-solid fa-calendar-plus"></i></button>
+          </span>
+        </li>
+      {{/each}}
+      </ul>
+    </div>
+    <div class="col-sm-5 col-md-5 col-lg-5">
+      <div id="detailArea">
+        <p><img class="" id="detailPhoto" src="" alt="space image"></p>
+        <p id="detailInfo"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Included Scripts -->
+<script src="./assets/js/savedeventpage.js"></script>
+
+<script>
+  var currentUserId = "{{currentUserId}}"; // Assign the currentUserId from the session
+</script>

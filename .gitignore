@@ -1,3 +1,6 @@
+# os
+.ds_store
+.DS_Store
 # Logs
 logs
 *.log

@@ -1,0 +1,126 @@
+/**************************************
+Default page styles
+**************************************/
+
+
+html,
+
+body {
+  margin: 0;
+  padding:0;
+  height:100%;
+  color:black;
+  background-color:rgb(218 ,233, 211);
+  }
+  html {
+    overflow-x: hidden;
+  }
+
+  h1 {
+  text-align: center;
+  font-weight: bold;
+  }
+  
+  h2 {
+  text-align: left;
+  font-weight: bold;
+  font-size: x-large;
+  }
+  
+  .Orbitron {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: normal;
+  }
+  
+
+
+
+
+  main {
+    flex: 1;
+    padding-bottom: 50px;
+
+  }
+  
+  /**************************************
+  Heading styles
+  **************************************/
+  
+  header {
+    background-color:black;
+    color: rgb(218 ,233, 211);
+    padding: 10px;
+    margin-right: 0px;
+    margin-left: 0px;
+    }
+    
+    #pageTitle {
+    font-weight: bold;
+    font-size: 2.5rem;
+    text-align: center;
+    vertical-align: middle;
+    }
+  
+  /**************************************
+  Nav styles
+  **************************************/
+  
+  navbar {
+  color:rgb(218 ,233, 211);
+  background-color:red;
+  
+  }
+  
+  .nav-link {
+  text-decoration:none;
+  color:rgb(218 ,233, 211);
+  }
+  
+  .nav-link:hover {
+  background-color:rgb(218 ,233, 211);
+  color:black;
+  }
+  
+  /**************************************
+  Styles
+  **************************************/
+
+  #blogLogo { 
+    background-color:rgb(218 ,233, 211);
+    color:black;
+    box-shadow: 8px 8px rgba(218 ,233, 211,0.5);
+    width:200px;
+    padding:2px;
+    border-radius:5px;
+    position:relative;
+    left: 10px;
+    font-family: 'Orbitron', sans-serif;
+    font-size:large;
+    font-weight:bolder;
+    text-align: center;
+  }
+
+  .card {
+    background-color:rgb(218 ,233, 211);
+    border: 2px solid black;
+  }
+
+  .blogs.card.header {
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+  color:rgb(218 ,233, 211);
+  background-color: black;
+  font-size:large;
+  }
+
+  #content {
+    padding: 4px;
+    background-color:rgb(218 ,233, 211);
+  }
+  #title {
+    position: relative;
+  }
+  #timestamp {
+    position: relative;
+  }
