@@ -7,6 +7,11 @@ console.log(router)
 router.get('/', async (req, res) => {
   console.log("get")
   try {
+    /*
+    const blogPostData = await sequelize.query(
+      "select * from BlogPost join BlogComment on BlogPost.id = BlogComment.blogid"
+      );*/
+    
     // Get all events sorted by id
     const blogPostData = await BlogPost.findAll({
       attributes:{

@@ -5,7 +5,7 @@ const { BlogPost } = require('../models');
 
 console.log(router)
 router.get('/', async (req, res) => {
-  console.log("get")
+  console.log("get comment")
   try {
     // Get all events sorted by id
     const blogPostData = await BlogPost.findAll({
@@ -23,7 +23,7 @@ router.get('/', async (req, res) => {
 console.log("results:");
 console.log (blogPosts);
     // Pass serialized data into Handlebars.js template
-    res.render('home', { blogPosts, currentUserId: "Mark" });
+    res.render('comment', { blogPosts, currentUserId: "Mark" });
   } catch (err) {
     res.status(500).json(err);
   }

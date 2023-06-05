@@ -6,18 +6,21 @@ app.use(express.static('public'));
 
 const router = require('express').Router();
 
-const loginRoutes = require('./login.js');
-const createAccountRoutes = require ('./createAccount.js');
-const savedEventsRoutes = require('./event-routes.js');
-const stellarEventpageRoutes = require('./stellarEventpageRoutes.js');
+//const loginRoutes = require('./login.js');
+//const createAccountRoutes = require ('./createAccount.js');
+const homeRoutes = require('./home-routes.js');
+const dashboardRoutes = require('./dashboard-routes.js');
+const commentRoutes = require('./comment-routes.js');
 
-router.use('/create-account', createAccountRoutes);
-router.use('/login', loginRoutes);
-router.use(savedEventsRoutes);
-router.use('/', stellarEventpageRoutes);
+//router.use('/create-account', createAccountRoutes);
+//router.use('/login', loginRoutes);
+router.use('/',homeRoutes);
+router.use('/dashboard',dashboardRoutes);
+router.use('/comment', commentRoutes);
 
+/*
 router.get('/', (req, res) => {
     res.redirect('/login');
   });
-
+*/
 module.exports = router;

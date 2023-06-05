@@ -23,7 +23,7 @@ router.get('/', async (req, res) => {
 console.log("results:");
 console.log (blogPosts);
     // Pass serialized data into Handlebars.js template
-    res.render('home', { blogPosts, currentUserId: "Mark" });
+    res.render('dashboard', { blogPosts, currentUserId: "Mark" });
   } catch (err) {
     res.status(500).json(err);
   }

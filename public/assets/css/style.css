@@ -8,7 +8,6 @@ html,
 body {
   margin: 0;
   padding:0;
-  height:100%;
   color:black;
   background-color:rgb(218 ,233, 211);
   }
@@ -32,15 +31,12 @@ body {
   font-weight: normal;
   }
   
-
-
-
-
   main {
     flex: 1;
-    padding-bottom: 50px;
-
+    padding:0px;
   }
+
+
   
   /**************************************
   Heading styles
@@ -49,9 +45,11 @@ body {
   header {
     background-color:black;
     color: rgb(218 ,233, 211);
-    padding: 10px;
+    padding: 0px;
     margin-right: 0px;
     margin-left: 0px;
+    padding-bottom: 10px;
+
     }
     
     #pageTitle {
@@ -65,10 +63,9 @@ body {
   Nav styles
   **************************************/
   
-  navbar {
+.navbar {
   color:rgb(218 ,233, 211);
-  background-color:red;
-  
+  background-color:red; 
   }
   
   .nav-link {
@@ -93,34 +90,112 @@ body {
     padding:2px;
     border-radius:5px;
     position:relative;
-    left: 10px;
+    left: 40px;
     font-family: 'Orbitron', sans-serif;
     font-size:large;
     font-weight:bolder;
     text-align: center;
   }
 
-  .card {
-    background-color:rgb(218 ,233, 211);
+  /************************ 
+  Blog Card 
+  *************************/
+  .clsBlogCard {
+    background-color:red;
+    /* :rgb(218 ,233, 211); */
     border: 2px solid black;
+    width:100%;
+    margin:10px;
+    padding:0px;
   }
-
-  .blogs.card.header {
+  .clsBlogCard.header {
     display:flex;
     align-items:center;
     justify-content: space-between;
-  color:rgb(218 ,233, 211);
-  background-color: black;
-  font-size:large;
+    color:rgb(218 ,233, 211);
+    background-color: black;
+    font-size:large;
+    width:100%;
   }
 
-  #content {
+  #blogCardTitle,
+  #blogCardTimestamp{
+    position:relative;
+    padding:5px;
+  }
+
+  #blogContent {
     padding: 4px;
     background-color:rgb(218 ,233, 211);
+    width:100%;
+        padding:5px;
   }
-  #title {
+
+
+/************************ 
+  comment Card 
+  *************************/
+  .clsCommentCard,
+  .clsNewPostCard {
+    background-color:rgb(218 ,233, 211);
+    border: 2px solid black;
+    margin-left:10px;
+    margin-right:10px;
+    width:100%
+  }
+  .clsCommentCard.header,
+  .clsNewPostCard.header {
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    color:rgb(218 ,233, 211);
+    background-color: black;
+    font-size:large;
+    width:100%;
+        padding:5px;
+  }
+
+  #inputComment,
+  .clsCommentButton,
+  .clsCommentLabel,
+  .clsCreateButton,
+  .clsPostInput,
+  .clsPostButton,
+  .clsPostLabel {
     position: relative;
+    margin:5px;
+    width:100%;
+        padding:5px;
   }
+  #inputComment,
+  .clsPostInput {
+    color:black;
+    background-color:yellow;
+    border: solid 2px blue;
+  }   
+
+  .clsCommentButton,
+  .clsPostButton  {
+    color:white;
+    background-color: grey;
+  }
+  .clsCommentButton:hover,
+  .clsPostButton:hover {
+    background-color: black;
+  }
+    .clsNewPostButton  {
+    color:white;
+    background-color: black;
+    position:relative;
+  }
+  .clsNewPostButton:hover{
+    background-color: grey;
+  }
+
+  
+
+
+
   #timestamp {
     position: relative;
   }

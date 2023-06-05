@@ -14,12 +14,16 @@ BlogComment.init(
     comment: {
       type: DataTypes.STRING,
       allowNull: true,
-      user: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
     },
-  },
+      user: {
+        type:DataTypes.STRING,
+        allowNull:false,
+      },
+      blogid:{
+        type: DataTypes.INTEGER,
+      allowNull:false,
+    },
+    },
   {
     sequelize,
     timestamps: true,

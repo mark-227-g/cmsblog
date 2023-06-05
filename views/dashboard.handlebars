@@ -1,0 +1,37 @@
+<div class="container-fluid">
+            <!--  loop through stellarEvents and create list time.
+            The list item has buttons for view, save, ical
+            -->
+            <div>Dashboard start</div>
+            {{#each blogPosts as |blogPost|}}
+
+<!-- post cards -->
+<div class="blogs">
+  <section class="card">
+    <header>
+      <span id:"title">
+      {{blogPost.title}}
+      </span>
+      <span id:"timestamp">
+        Posted by {{blogPost.user}} on {{blogPost.createdAt}}
+      </span>
+    </header>
+
+    <p id:"content">
+    {{blogPost.content}}
+    </p>
+  </section>
+</div>
+
+
+            {{/each}}
+            <div>end</div>
+
+
+<!-- Included Scripts 
+<script src="./assets/js/eventpage.js"></script>
+-->
+<script>
+  var currentUserId = "{{currentUserId}}"; // Assign the currentUserId from the session
+</script>
+
