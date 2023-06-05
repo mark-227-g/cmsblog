@@ -8,7 +8,7 @@
 {{#each blogPosts as |blogPost|}}
 
 <div class="clsBlogCard">
-  <header>
+  <header class="clsCardHeader">
     <span id:"blogCardTitle">
     {{blogPost.title}}
     </span>
@@ -16,7 +16,7 @@
     Posted by {{blogPost.user}} on {{blogPost.createdAt}}
     </span>
   </header>
-    <p id:"blogContent">
+    <p id:"blogContent" class="clsCardContent">
     {{blogPost.content}}
     </p>
 </div>
@@ -26,8 +26,8 @@
     Comment
     </span>
   </header>
-    <p id:"blogContent">
-    {{blogPost.content}}
+    <p id:"blogCommentContent">
+    {{blogComments}}
     </p>
 </div>
 {{/each}}

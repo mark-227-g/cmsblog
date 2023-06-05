@@ -1,25 +1,32 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { BlogPost } = require('../models');
+const { BlogComment } = require('../models');
 
 
 console.log(router)
 router.get('/', async (req, res) => {
   console.log("get")
   try {
-    /*
-    const blogPostData = await sequelize.query(
-      "select * from BlogPost join BlogComment on BlogPost.id = BlogComment.blogid"
-      );*/
     
     // Get all events sorted by id
     const blogPostData = await BlogPost.findAll({
+      
       attributes:{
         include:["id","title","content","user",
         sequelize.fn("DATE_FORMAT",
         "createdAt","%m %d %Y"),"createdAt"
       ] 
       },
+      include:[{
+        model: BlogComment,
+        required:true,
+        attributes:[
+          'comment',
+          'user',
+          'createdAt'
+        ]
+      }],
       order: [['id', 'ASC']]
     });
 
@@ -27,6 +34,7 @@ router.get('/', async (req, res) => {
     const blogPosts = blogPostData.map((project) => project.get({ plain: true }));
 console.log("results:");
 console.log (blogPosts);
+
     // Pass serialized data into Handlebars.js template
     res.render('home', { blogPosts, currentUserId: "Mark" });
   } catch (err) {

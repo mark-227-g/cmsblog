@@ -1,6 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-//const StellarEvent = require('./blogPosts');
 
 class BlogComment extends Model {}
 
@@ -22,6 +21,10 @@ BlogComment.init(
       blogid:{
         type: DataTypes.INTEGER,
       allowNull:false,
+      references: {
+        model:'BlogPost',
+        key:'id',
+      },
     },
     },
   {
