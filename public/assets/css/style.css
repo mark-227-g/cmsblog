@@ -67,7 +67,7 @@ body {
   
 .navbar {
   color:rgb(218 ,233, 211);
-  background-color:red; 
+  background-color:black; 
   }
   
   .nav-link {
@@ -78,6 +78,11 @@ body {
   .nav-link:hover {
   background-color:rgb(218 ,233, 211);
   color:black;
+  }
+  .navbar-nav {
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 50%;
   }
   
   /**************************************
@@ -176,7 +181,7 @@ body {
   #inputComment,
   .clsPostInput {
     color:black;
-    background-color:yellow;
+    background-color:white;
     border: solid 2px blue;
   }   
 

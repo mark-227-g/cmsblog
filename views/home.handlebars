@@ -20,6 +20,8 @@
     {{blogPost.content}}
     </p>
 </div>
+{{#if blogPost.BlogComments}}
+{{#each blogPost.BlogComments as |blogComment|}}
 <div class="clsBlogCard">
   <header>
     <span id:"blogCardTitle">
@@ -27,9 +29,12 @@
     </span>
   </header>
     <p id:"blogCommentsContent">
-    {{"show comment here"}}
+    {{blogComment.comment}}
     </p>
 </div>
+
+{{/each}}
+{{/if}}
 {{/each}}
 
 <!-- comment cards -->
