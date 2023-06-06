@@ -27,9 +27,7 @@ router.get('/', async (req, res) => {
     const blogPostData = await BlogPost.findAll({
       
       attributes:{
-        include:["id","title","content","user",
-        sequelize.fn("DATE_FORMAT",
-        "createdAt","%m %d %Y"),"createdAt"
+        include:["id","title","content","user","createdAt"
       ] 
       },
       include:{

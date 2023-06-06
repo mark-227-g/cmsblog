@@ -53,13 +53,15 @@ router.delete('/:id',(req,res) => {
 router.put('/:id',(req,res) => {
     BlogComment.update(
         {
-            title:req.body.title,
-            content:req.body.content,
+            comment:req.body.title,
+            user:req.body.user,
+            blogid:req.body.blogid
         }, // end fields
         {
             where:{
                 id:req.params.id,
             }, 
+            returning:true,
         } // end where
     ) // end update
     .then((updatepost) => {
