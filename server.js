@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-//app.use(require('./controllers/home-routes.js'));
+app.use(require('./controllers/home-routes.js'));
 app.use(routes);
 
 /* from ste why?

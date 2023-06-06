@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
         "createdAt","%m %d %Y"),"createdAt"
       ] 
       },
-      include:{
+      include:[{
         model: BlogComment,
         required:true,
         attributes:[
@@ -26,16 +26,17 @@ router.get('/', async (req, res) => {
           'user',
           'createdAt'
         ]
-      },
+      }],
       order: [['id', 'ASC']]
     });
 
     // Serialize eventpage data so templates can read it
     const blogPosts = blogPostData.map((project) => project.get({ plain: true }));
 console.log("results:");
-console.log(blogPosts)
-console.log("json results:");
-console.log (blogPost.BlogComments[0].comment);
+console.log (blogPosts);
+console.log("result comment")
+const blogComment = blogPostData.BlogComment.map((project) => project.get({ plain: true }));
+console.log(blogPosts.blogComment);
 
     // Pass serialized data into Handlebars.js template
     res.render('home', { blogPosts, currentUserId: "Mark" });

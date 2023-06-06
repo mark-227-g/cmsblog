@@ -25,6 +25,7 @@ BlogComment.init(
         model:'BlogPost',
         key:'id',
       },
+      onDelete: 'CASCADE'
     },
     },
   {
