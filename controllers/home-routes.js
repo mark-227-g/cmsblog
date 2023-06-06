@@ -8,8 +8,20 @@ console.log(router)
 router.get('/', async (req, res) => {
   console.log("get")
   try {
+    const blogPostData = await BlogPost.findAll({
+      
+      attributes:{
+        include:["id","title","content","user",
+        sequelize.fn("DATE_FORMAT",
+        "createdAt","%m %d %Y"),"createdAt"
+      ] 
+      },
+      
     
+      order: [['id', 'ASC']]
+    });
     // Get all events sorted by id
+    /*
     const blogPostData = await BlogPost.findAll({
       
       attributes:{
@@ -29,13 +41,14 @@ router.get('/', async (req, res) => {
       },
       order: [['id', 'ASC']]
     });
+    */
 
     // Serialize eventpage data so templates can read it
     const blogPosts = blogPostData.map((project) => project.get({ plain: true }));
 console.log("results:");
 console.log(blogPosts)
 console.log("json results:");
-console.log (blogPost.BlogComments[0].comment);
+////console.log (blogPost.BlogComments[0].comment);
 
     // Pass serialized data into Handlebars.js template
     res.render('home', { blogPosts, currentUserId: "Mark" });
