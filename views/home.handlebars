@@ -9,7 +9,7 @@
 
 <div class="clsBlogCard">
   <header class="clsCardHeader">
-    <span id:"blogCardTitle">
+    <span id:"blogCardTitle" value="{{blogPost.id}}">
     {{blogPost.title}}
     </span>
     <span id:"blogCardTimestamp">
@@ -41,6 +41,7 @@
 <div class="clsCommentCard">
   <header>
     <span id:"title">
+      Add Comment
     </span>
     <span id:"timestamp">
     </span>
@@ -48,7 +49,7 @@
   <div>
     <label class="clsCommentLabel" for="inputComment">Comment</label>
     <textarea name="inputComent" id="inputComment" rows="5" cols="15"></textarea>
-    <button class="clsCommentButton">Submit</button>
+    <button class="clsCommentButton" id="createCommentButton">Submit</button>
   </div>
 </div>
 </div>
@@ -64,10 +65,10 @@
   </header>
     <div>
     <label class="clsPostLabel" for="inputNewPostTitle">Title</label>
-    <textarea class="clsPostInput" id="imputNewPostTitle" name="inputNewPostTitle" rows="1" cols="15"></textarea>
+    <textarea class="clsPostInput" id="inputNewPostTitle" rows="1" cols="15"></textarea>
     <label class="clsPostLabel" for="inputNewPostContent">Content</label>
-    <textarea class="clsPostInput" id="inputNewPostContent" name="inputNewPostContent" rows="5" cols="15"></textarea>
-    <button class="clsPostButton" id"createButton>Create</button>
+    <textarea class="clsPostInput" id="inputNewPostContent" rows="5" cols="15"></textarea>
+    <button class="clsPostButton" id="createPostButton">Create</button>
   </div>
 </div>
 
@@ -75,18 +76,18 @@
 <div class="clsEditPostCard">
   <header>
     <span id:"title">
-      Create New Post
+      Edit or Delete Post
     </span>
     <span id:"timestamp">
     </span>
   </header>
     <div>
     <label class="clsPostLabel" for="inputEditPostTitle">Title</label>
-    <textarea class="clsPostInput" id="imputEditPostTitle" name="inputEditPostTitle" rows="1" cols="15"></textarea>
+    <textarea class="clsPostInput" id="inputEditPostTitle" rows="1" cols="15"></textarea>
     <label class="clsPostLabel" for="inputEditPostContent">Content</label>
-    <textarea class="clsPostInput" id="inputEditPostContent" name="inputEditPostContent" rows="5" cols="15"></textarea>
-    <button class="clsPostButton" id"editButton>Edit</button>
-    <button class="clsPostButton" id"deleteButton>Delete</button>
+    <textarea class="clsPostInput" id="inputEditPostContent" rows="5" cols="15"></textarea>
+    <button class="clsPostButton" id="editPostButton">Edit</button>
+    <button class="clsPostButton" id="deletePostButton">Delete</button>
   </div>
 </div>
 
@@ -94,9 +95,9 @@
 <button class="clsNewPostButton" id="newPostButton">+ New Post</button>
 </div>
 
-<!-- Included Scripts 
-<script src="./assets/js/eventpage.js"></script>
--->
+<!-- Included Scripts -->
+<script src="./assets/js/home.js"></script>
+
 <script>
   var currentUserId = "{{currentUserId}}"; // Assign the currentUserId from the session
 </script>
