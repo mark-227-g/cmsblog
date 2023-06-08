@@ -2,12 +2,11 @@
             <!--  loop through stellarEvents and create list time.
             The list item has buttons for view, save, ical
             -->
-<div>start</div>
 <!-- blogPost cards -->
 <div>
 {{#each blogPosts as |blogPost|}}
 
-<div class="clsBlogCard">
+<div class="clsBlogCard" id="blogCard">
   <header class="clsCardHeader">
     <span id:"blogCardTitle" value="{{blogPost.id}}">
     {{blogPost.title}}
@@ -21,6 +20,7 @@
     </p>
 </div>
 {{#if blogPost.BlogComments}}
+<div id="blogComments">
 {{#each blogPost.BlogComments as |blogComment|}}
 <div class="clsBlogCard">
   <header>
@@ -34,11 +34,10 @@
 </div>
 
 {{/each}}
+</div>
 {{/if}}
-{{/each}}
-
 <!-- comment cards -->
-<div class="clsCommentCard">
+<div class="clsBlogCard clsCardHidden" id="newCommentCard">
   <header>
     <span id:"title">
       Add Comment
@@ -47,15 +46,38 @@
     </span>
   </header>
   <div>
-    <label class="clsCommentLabel" for="inputComment">Comment</label>
-    <textarea name="inputComent" id="inputComment" rows="5" cols="15"></textarea>
-    <button class="clsCommentButton" id="createCommentButton">Submit</button>
+    <label class="clsCommentLabel" for="inputCreateComment">Comment</label>
+    <textarea id="inputCreateComment" class="clsInputComment" rows="5" cols="15"></textarea>
+    <button class="clsCommentButton" value="{{blogPost.id}}" id="createCommentButton">Submit</button>
   </div>
 </div>
+
+<!-- edit post cards -->
+<div class="clsBlogCard clsCardHidden">
+  <header>
+    <span id:"title">
+      Edit or Delete Post
+    </span>
+    <span id:"timestamp">
+    </span>
+  </header>
+    <div>
+    <label class="clsPostLabel"   for="inputEditPostTitle">Title</label>
+    <textarea class="clsPostInput" id="inputEditPostTitle" rows="1" cols="15"></textarea>
+    <label class="clsPostLabel"   for="inputEditPostContent">Content</label>
+    <textarea class="clsPostInput" id="inputEditPostContent" rows="5" cols="15"></textarea>
+    <button class="clsPostButton" value="{{blogPost.id}}" id="editPostButton">Edit</button>
+    <button class="clsPostButton" value="{{blogPost.id}}" id="deletePostButton">Delete</button>
+    </div>
 </div>
 
+{{/each}}
+</div>
+
+<button class="clsNewPostButton" id="newPostButton">+ New Post</button>
+
 <!-- New Post cards -->
-<div class="clsNewPostCard">
+<div class="clsBlogCard clsCardHidden" id="newPostCard">
   <header>
     <span id:"title">
       Create New Post
@@ -71,28 +93,6 @@
     <button class="clsPostButton" id="createPostButton">Create</button>
   </div>
 </div>
-
-<!-- edit post cards -->
-<div class="clsEditPostCard">
-  <header>
-    <span id:"title">
-      Edit or Delete Post
-    </span>
-    <span id:"timestamp">
-    </span>
-  </header>
-    <div>
-    <label class="clsPostLabel" for="inputEditPostTitle">Title</label>
-    <textarea class="clsPostInput" id="inputEditPostTitle" rows="1" cols="15"></textarea>
-    <label class="clsPostLabel" for="inputEditPostContent">Content</label>
-    <textarea class="clsPostInput" id="inputEditPostContent" rows="5" cols="15"></textarea>
-    <button class="clsPostButton" id="editPostButton">Edit</button>
-    <button class="clsPostButton" id="deletePostButton">Delete</button>
-  </div>
-</div>
-
-
-<button class="clsNewPostButton" id="newPostButton">+ New Post</button>
 </div>
 
 <!-- Included Scripts -->

@@ -32,7 +32,7 @@ router.get('/', async (req, res) => {
       },
       include:{
         model: BlogComment,
-        required:true,
+        required:false,
         attributes:[
           'comment',
           'user',

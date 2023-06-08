@@ -107,9 +107,14 @@ body {
   /************************ 
   Blog Card 
   *************************/
+
+  .clsCardHidden {
+   
+  }
+
   .clsBlogCard {
     background-color:rgb(218 ,233, 211); 
-    border: 4px solid black;
+    border: 4px solid green;
     width:100%;
     margin:10px;
   }
@@ -166,7 +171,7 @@ body {
         padding:5px;
   }
 
-  #inputComment,
+  .clsInputComment,
   .clsCommentButton,
   .clsCommentLabel,
   .clsCreateButton,
@@ -178,7 +183,7 @@ body {
     width:100%;
         padding:5px;
   }
-  #inputComment,
+  .clsInputComment,
   .clsPostInput {
     color:black;
     background-color:white;

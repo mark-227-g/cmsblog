@@ -19,6 +19,7 @@ router.get('/:id',(req,res) => {
 
 // creaate post
 router.post('/',(req,res) => {
+    console.log('POST CREATE '+req.body);
     BlogPost.create(req.body)
     .then((newPost) => {
         res.json(newPost);
