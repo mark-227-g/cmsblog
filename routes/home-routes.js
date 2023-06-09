@@ -21,11 +21,12 @@ router.get('/', async (req, res) => {
       include:[{
         model: BlogComment,
         required:true,
-        attributes:[
+        attributes:{include:[
           'comment',
           'user',
-          'createdAt'
-        ]
+          sequelize.fn("DATE_FORMAT",
+        "createdAt","%m %d %Y"),"createdAt"
+        ]}
       }],
       order: [['id', 'ASC']]
     });

@@ -20,12 +20,12 @@
     </p>
 </div>
 {{#if blogPost.BlogComments}}
-<div id="blogComments">
+<div id="blogComments" class="clsCardHidden">
 {{#each blogPost.BlogComments as |blogComment|}}
 <div class="clsBlogCard">
   <header>
     <span id:"blogCardTitle">
-    Comment
+    Comment Posted by {{blogComment.user}} on {{formatDate blogComment.createdAt}}
     </span>
   </header>
     <p id:"blogCommentsContent">
@@ -45,11 +45,11 @@
     <span id:"timestamp">
     </span>
   </header>
-  <div>
+  <p>
     <label class="clsCommentLabel" for="inputCreateComment">Comment</label>
     <textarea id="inputCreateComment" class="clsInputComment" rows="5" cols="15"></textarea>
     <button class="clsCommentButton" value="{{blogPost.id}}" id="createCommentButton">Submit</button>
-  </div>
+  </p>
 </div>
 
 <!-- edit post cards -->
@@ -61,14 +61,14 @@
     <span id:"timestamp">
     </span>
   </header>
-    <div>
+    <p>
     <label class="clsPostLabel"   for="inputEditPostTitle">Title</label>
     <textarea class="clsPostInput" id="inputEditPostTitle" rows="1" cols="15"></textarea>
     <label class="clsPostLabel"   for="inputEditPostContent">Content</label>
     <textarea class="clsPostInput" id="inputEditPostContent" rows="5" cols="15"></textarea>
     <button class="clsPostButton" value="{{blogPost.id}}" id="editPostButton">Edit</button>
     <button class="clsPostButton" value="{{blogPost.id}}" id="deletePostButton">Delete</button>
-    </div>
+    </p>
 </div>
 
 {{/each}}
@@ -85,13 +85,13 @@
     <span id:"timestamp">
     </span>
   </header>
-    <div>
+    <p>
     <label class="clsPostLabel" for="inputNewPostTitle">Title</label>
     <textarea class="clsPostInput" id="inputNewPostTitle" rows="1" cols="15"></textarea>
     <label class="clsPostLabel" for="inputNewPostContent">Content</label>
     <textarea class="clsPostInput" id="inputNewPostContent" rows="5" cols="15"></textarea>
     <button class="clsPostButton" id="createPostButton">Create</button>
-  </div>
+  </p>
 </div>
 </div>
 

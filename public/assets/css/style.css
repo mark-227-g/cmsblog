@@ -82,7 +82,7 @@ body {
   .navbar-nav {
     flex-direction: row;
     justify-content: space-evenly;
-    width: 50%;
+   /* width: 50%;*/
   }
   
   /**************************************
@@ -109,13 +109,13 @@ body {
   *************************/
 
   .clsCardHidden {
-   
+   display:none;
   }
 
   .clsBlogCard {
     background-color:rgb(218 ,233, 211); 
     border: 4px solid green;
-    width:100%;
+    /*width:100%;*/
     margin:10px;
   }
 
@@ -126,7 +126,7 @@ body {
     color:rgb(218 ,233, 211);
     background-color: black;
     font-size:large;
-    width:100%;
+
     padding:5px;
   }
     .clsCardContent {
@@ -136,7 +136,7 @@ body {
       color:black;
       background-color: rgb(218 ,233, 211);
       font-size:medium;
-      width:100%;
+     /* width:100%;*/
       padding:5px;
   }
 
@@ -157,7 +157,7 @@ body {
     border: 2px solid black;
     margin-left:10px;
     margin-right:10px;
-    width:100%
+    /*width:100%*/
   }
   .clsCommentCard.header,
   .clsNewPostCard.header {
@@ -167,7 +167,7 @@ body {
     color:rgb(218 ,233, 211);
     background-color: black;
     font-size:large;
-    width:100%;
+    /*width:100%;*/
         padding:5px;
   }
 
@@ -179,9 +179,9 @@ body {
   .clsPostButton,
   .clsPostLabel {
     position: relative;
-    margin:5px;
+    margin:0px;
     width:100%;
-        padding:5px;
+    padding:5px;
   }
   .clsInputComment,
   .clsPostInput {

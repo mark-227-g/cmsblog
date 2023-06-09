@@ -23,7 +23,7 @@ createCommentButtonEls.forEach(element =>{
   element.addEventListener("click",createCommentButtonClick);
 });
 
-let blogCardE1s=document.querySelectorAll(".clsBlogCard");
+let blogCardE1s=document.querySelectorAll("#blogCard");
   blogCardE1s.forEach(element => {
     element.addEventListener("click",blogCardClick);
   });
@@ -75,6 +75,7 @@ function createPostButtonClick(event) {
   function blogCardClick(event) {
     alert("event " +event.currentTarget+" has been clicked ");
     //$("#newPostCard").removeClass("clsCardHidden")
+    $(this).siblings("div#blogComments").removeClass("clsCardHidden")
     $(this).siblings("div#newCommentCard").removeClass("clsCardHidden")
     //console.log(event.currentTarget);
   }
@@ -162,6 +163,8 @@ Comment functions
       })
       .then(function (data) {
         console.log('New comment created: ', data);
+        $(this).siblings("div#blogComments").addClass("clsCardHidden")
+        $(this).siblings("div#newCommentCard").addClass("clsCardHidden")
       })
       .catch(function (error) {
         console.error('Error creating comment: ', error);
