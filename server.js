@@ -7,6 +7,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 const sequelize = require('./config/connection');
 const routes = require('./routes')
+const controllers = require('./controllers')
 
 
 
@@ -17,7 +18,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(require('./controllers/home-routes.js'));
+//app.use(require('./controllers/index.js'));
+app.use(controllers);
 app.use(routes);
 
 /* from ste why?

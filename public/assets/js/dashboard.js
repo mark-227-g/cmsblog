@@ -18,12 +18,7 @@ deletePostButtonEls.forEach(element => {
   element.addEventListener("click",deletePostButtonClick);
 });
 
-let createCommentButtonEls=document.querySelectorAll("#createCommentButton");
-createCommentButtonEls.forEach(element =>{
-  element.addEventListener("click",createCommentButtonClick);
-});
-
-let blogCardE1s=document.querySelectorAll("#blogCard");
+let blogCardE1s=document.querySelectorAll(".clsCardHeader");
   blogCardE1s.forEach(element => {
     element.addEventListener("click",blogCardClick);
   });
@@ -73,11 +68,10 @@ function createPostButtonClick(event) {
   };
 
   function blogCardClick(event) {
-    alert("event " +event.currentTarget+" has been clicked ");
-    //$("#newPostCard").removeClass("clsCardHidden")
-    $(this).siblings("div#blogComments").removeClass("clsCardHidden")
-    $(this).siblings("div#newCommentCard").removeClass("clsCardHidden")
-    //console.log(event.currentTarget);
+   // alert("event " +"#editPost"+event.currentTarget.id+" " +event.currentTarget+" has been clicked ");
+    $("#editPost"+event.currentTarget.id).removeClass("clsCardHidden")
+    //event.currentTarget.siblings("div#editPost").removeClass("clsCardHidden")
+    
   }
 
   function createNewPost(title, content,user) {
@@ -92,6 +86,7 @@ function createPostButtonClick(event) {
       })
       .then(function (data) {
         console.log('New post created: ', data);
+        location.reload(true);
       })
       .catch(function (error) {
         console.error('Error creating post: ', error);
@@ -109,6 +104,7 @@ function createPostButtonClick(event) {
       })
       .then(function (data) {
         console.log('post has been updated: ', data);
+        location.reload(true);
       })
       .catch(function (error) {
         console.error('Error deleting post: ', error);
@@ -126,6 +122,7 @@ function createPostButtonClick(event) {
       })
       .then(function (data) {
         console.log('post has been deleted: ', data);
+        location.reload(true);
       })
       .catch(function (error) {
         console.error('Error deleting post: ', error);
@@ -148,93 +145,10 @@ function createPostButtonClick(event) {
       });
   }
 
-
-/************************************** 
-Comment functions
-**************************************/
-  function createNewComment(blogid, comment,user) {
-    fetch('/api/blogcomment', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ blogid:blogid, comment: comment, user:user }),
-    })
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (data) {
-        console.log('New comment created: ', data);
-        $(this).siblings("div#blogComments").addClass("clsCardHidden")
-        $(this).siblings("div#newCommentCard").addClass("clsCardHidden")
-      })
-      .catch(function (error) {
-        console.error('Error creating comment: ', error);
-      });
-  }
-
-  function editComment(id, blogid, comment,user) {
-    fetch('/api/blogcomment/'+id, {
-      method: 'Put',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ blogid:blogid, comment: comment, user:user }),
-    })
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (data) {
-        console.log('Comment has been updated: ', data);
-      })
-      .catch(function (error) {
-        console.error('Error updating comment: ', error);
-      });
-  }
-
-  function deleteComment(id, blogid, comment,user) {
-    fetch('/api/blogcomment/'+id, {
-      method: 'delete',
-      headers: { 'Content-Type': 'application/json' },
-      body: "",
-    })
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (data) {
-        console.log('Comment has been deleted: ', data);
-      })
-      .catch(function (error) {
-        console.error('Error deleting comment: ', error);
-      });
-  }
-
-  function getComment(id) {
-    fetch('/api/blogcomment/'+id, {
-      method: 'get',
-      headers: { 'Content-Type': 'application/json' },
-      body: "",
-    })
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (data) {
-        console.log('Comment: ', data);
-      })
-      .catch(function (error) {
-        console.error('Error getting comment: ', error);
-      });
-  }
-
-
-/************************************** 
-Event handlers for comments
-**************************************/
-function createCommentButtonClick(event) {
-  let newComment=$(this).siblings("textarea#inputCreateComment");
-  createNewComment(event.currentTarget.value,newComment.val(),currentUser);
-  console.log(`New Comment: ${event.currentTarget.value} ${newComment.val}`);
-  }
-
   function main()
   {
-    document.querySelector("#blogLogo").innerHTML="The Tech Blog"
-    console.log("home")
+    //$("#blogLogo").innerHTML="Your Dashboard" 
+    document.querySelector("#blogLogo").innerHTML="Your Dashboard"
+    console.log("dashboard main")
   }
   $(document).ready(main);
