@@ -73,7 +73,7 @@ function createPostButtonClick(event) {
   };
 
   function blogCardClick(event) {
-    alert("event " +event.currentTarget+" has been clicked ");
+   // alert("event " +event.currentTarget+" has been clicked ");
     //$("#newPostCard").removeClass("clsCardHidden")
     $(this).siblings("div#blogComments").removeClass("clsCardHidden")
     $(this).siblings("div#newCommentCard").removeClass("clsCardHidden")
@@ -96,6 +96,7 @@ function createPostButtonClick(event) {
       .catch(function (error) {
         console.error('Error creating post: ', error);
       });
+      location.reload();
   }
 
   function editPost(id, title, content,user) {
@@ -113,6 +114,7 @@ function createPostButtonClick(event) {
       .catch(function (error) {
         console.error('Error deleting post: ', error);
       });
+      location.reload();
   }
 
   function deletePost(id) {
@@ -130,6 +132,7 @@ function createPostButtonClick(event) {
       .catch(function (error) {
         console.error('Error deleting post: ', error);
       });
+      location.reload();
   }
   function getPost(id) {
     fetch('/api/blogpost/'+id, {
@@ -169,6 +172,7 @@ Comment functions
       .catch(function (error) {
         console.error('Error creating comment: ', error);
       });
+      location.reload();
   }
 
   function editComment(id, blogid, comment,user) {
@@ -186,6 +190,7 @@ Comment functions
       .catch(function (error) {
         console.error('Error updating comment: ', error);
       });
+      location.reload();
   }
 
   function deleteComment(id, blogid, comment,user) {
@@ -203,6 +208,7 @@ Comment functions
       .catch(function (error) {
         console.error('Error deleting comment: ', error);
       });
+      location.reload();
   }
 
   function getComment(id) {
