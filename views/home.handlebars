@@ -1,3 +1,4 @@
+{{#if loggedIn}}
 <div class="container-fluid">
             <!--  loop through blogposts and create list time.
             The list item has buttons for view, save, ical
@@ -73,8 +74,9 @@
 
 {{/each}}
 </div>
-
+<div>
 <button class="clsNewPostButton" id="newPostButton">+ New Post</button>
+</div>
 
 <!-- New Post cards -->
 <div class="clsBlogCard clsCardHidden" id="newPostCard">
@@ -94,7 +96,11 @@
   </p>
 </div>
 </div>
-
+{{else}}
+<div>
+<a href="/login">You must login first to view the blogs</a>
+</div>
+{{/if}}
 <!-- Included Scripts -->
  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
  

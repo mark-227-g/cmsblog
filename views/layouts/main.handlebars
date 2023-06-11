@@ -29,8 +29,11 @@
     <div class="navbar-nav">
       <a class="nav-item nav-link" href="/">Home</a>
       <a class="nav-item nav-link" href="/dashboard">Dashboard</a>
+      {{#if loggedIn}}
+      <a class="nav-item nav-link" href="logout">Logout</a>
+      {{else}}
       <a class="nav-item nav-link" href="login">Login</a>
-      <a class="nav-item nav-link" href="logout">Loout</a>
+      {{/if}}
     </div>
 </nav>
     <div id="blogLogo">The Tech Blog</div>
@@ -48,6 +51,9 @@
   <!-- Added link to the jQuery library -->
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   
+  {{#if loggedIn}}
+  <script src="/js/jogout.js"></script>
+  {{/if}}
 
   </body>
 

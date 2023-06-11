@@ -4,6 +4,7 @@ const bcrypt = require('bcryptjs');
 const blogUser = require('../models/BlogUser.js');
 
 router.get('/', (req, res) => {
+  console.log("session variables: "+req.session)
   res.render('login');
 });
 

@@ -64,7 +64,10 @@ console.log("json results:");
 
     // Pass serialized data into Handlebars.js template
     console.log(req.session.currentUserName);
-    res.render('home', { blogPosts});
+    console.log("session variables: "+req.session)
+    res.render('home', { blogPosts,
+      currentUserName:req.session.currentUserName,
+      loggedIn: req.session.loggedIn});
   } catch (err) {
     res.status(500).json(err);
   }

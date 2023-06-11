@@ -23,6 +23,7 @@ router.get('/', async (req, res) => {
 console.log("results:");
 console.log (blogUser);
     // Pass serialized data into Handlebars.js template
+    console.log("session variables: "+req.session)
     res.render('home', { blogUser, currentUserName });
   } catch (err) {
     res.status(500).json(err);

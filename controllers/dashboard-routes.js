@@ -63,7 +63,13 @@ console.log("json results:");
 //console.log (commentmap)
 
     // Pass serialized data into Handlebars.js template
-    res.render('dashboard', { blogPosts});
+    console.log(req.session)
+    console.log("session variables: "+req.session)
+    res.render('dashboard', { 
+      blogPosts,
+      currentUserName:req.session.currentUserName,
+      loggedIn: req.session.loggedIn
+    });
   } catch (err) {
     res.status(500).json(err);
   }
