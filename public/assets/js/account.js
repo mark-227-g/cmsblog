@@ -7,11 +7,8 @@ form.addEventListener('submit', event => {
 		console.log(`${name}: ${value}`);
 	}
 	const username = data.get('username');
-	const email = data.get('email');
 	const password = data.get('password');
 	const confirmPassword = data.get('confirm-password');
-	const name = data.get('name');
-	const zipcode = data.get('zipcode');
 
 	// check if passwords match
 	if (password !== confirmPassword) {
@@ -23,7 +20,7 @@ form.addEventListener('submit', event => {
 	fetch('/create-account', {
 		method: 'POST',
 		headers: { 'Content-Type': 'application/json' },
-		body: JSON.stringify({ username, email, password, name, zipcode })
+		body: JSON.stringify({ username, password})
 	})
 		.then(response => response.json())
 		.then(data => {

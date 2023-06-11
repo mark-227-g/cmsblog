@@ -27,7 +27,6 @@ let blogCardE1s=document.querySelectorAll(".clsCardHeader");
 /************************************** 
 Current values
 **************************************/
-var currentUser="mark";
 var currentPost=0;
 var currentComment=0;
 

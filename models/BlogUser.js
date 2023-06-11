@@ -5,6 +5,12 @@ const bcrypt = require('bcryptjs');
 class BlogUser extends Model {}
 
 BlogUser.init({
+  id: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    primaryKey: true,
+    autoIncrement: true,
+  },
   username: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -12,31 +18,6 @@ BlogUser.init({
     validate: {
       notNull: true,
       len: [3, 50]
-    }
-  },
-  name: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    validate: {
-      notNull: true,
-      len: [3, 50]
-    }
-  },
-  zipcode: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    validate: {
-      notNull: true,
-      len: [5, 10]
-    }
-  },
-  email: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    unique: true,
-    validate: {
-      notNull: true,
-      isEmail: true
     }
   },
   password: {

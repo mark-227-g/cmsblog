@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
-const stellarUser = require('../models/stellarUser.js');
+const blogUser = require('../models/BlogUser.js');
 
 router.get('/', (req, res) => {
   res.render('login');
@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   const { username, password } = req.body;
 
-  stellarUser.findOne({ where: { username } })
+  blogUser.findOne({ where: { username } })
     .then(user => {
       if (user) {
         console.log(`Found user with ID: ${user.id} and hashed password: ${user.password}`);
@@ -20,9 +20,11 @@ router.post('/', (req, res) => {
             console.log(`Passwords match: ${match}`);
             if (match) {
               // Passwords match
-              req.session.user = user;
+
+              req.session.currentUserName = username;
               req.session.currentUserId = user.id;
-              res.redirect('/event');
+              console.log(req.session)
+              res.redirect('/');
             } else {
               // Passwords don't match
               res.send('<script>alert("Invalid username or password"); window.location="/login";</script>');
