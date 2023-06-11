@@ -30,17 +30,17 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 const middleware = (req, res, next) => {
-  console.log("middleware")
-  console.log(req.session.loggedIn);
+ // console.log("middleware")
+//  console.log(req.session.loggedIn);
   if(req.session.loggedIn){
     let currentDate=new Date();
    // console.log(typeof(req.session.lastActivity)+" "+req.session.lastActivity)
     let lastDate= new Date(req.session.lastActivity);
-    console.log(lastDate+"    "+lastDate.getDate())
-    console.log(currentDate.getTime() +" === "+lastDate.getTime())
+ //  console.log(lastDate+"    "+lastDate.getDate())
+  //  console.log(currentDate.getTime() +" === "+lastDate.getTime())
     
     let timeDifference = ((currentDate.getTime() - lastDate.getTime())/1000)/30;
-    console.log("time diff: "+timeDifference);
+ //   console.log("time diff: "+timeDifference);
     
     if (timeDifference>15) {
       req.session.loggedIn=false;

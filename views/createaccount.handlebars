@@ -1,32 +1,21 @@
-<div class="container-fluid my-5">
-  <div class="row align-items-center">
-    <div class="col-md-4">
-      <h1 class="mb-0" style="font-size: 2.5rem;">Create an Account</h1>
-      <form id="create-account-form" method="POST" action="/create-account" style="background-color: #f7f7f7; padding: 20px;">
-        <div class="mb-3">
-          <label for="username" class="form-label" style="font-family: 'Roboto', sans-serif; font-size: 1rem; font-weight: bold;">Username:</label>
-          <input type="text" id="username" name="username" class="form-control" style="padding: 10px; font-family: 'Roboto', sans-serif; font-size: 1rem;" required>
-        </div>
 
-        <div class="mb-3">
-          <label for="password" class="form-label" style="font-family: 'Roboto', sans-serif; font-size: 1rem; font-weight: bold;">Password:</label>
-          <input type="password" id="password" name="password" class="form-control" style="padding: 10px; font-family: 'Roboto', sans-serif; font-size: 1rem;" required>
-        </div>
-
-        <div class="mb-3">
-          <label for="confirm-password" class="form-label" style="font-family: 'Roboto', sans-serif; font-size: 1rem; font-weight: bold;">Confirm Password:</label>
-          <input type="password" id="confirm-password" name="confirm-password" class="form-control" style="padding: 10px; font-family: 'Roboto', sans-serif; font-size: 1rem;" required>
-        </div>
-
-        <div class="text-center">
-          <button type="submit" id="create-account-button" class="btn btn-primary" style="background-color: #1b1b1b;">Create Account</button>
-        </div>
-      </form>
-      <div class="row justify-content-center mt-4">
-        <div class="col-md-6 text-center">
-          <a href="/login">Already have an account? Login</a>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="clsBlogCard" id="loginCard">
+  <header>
+    <span id:"title">
+      Sign Up
+    </span>
+  </header>
+  <form method="POST" action="/create-account" >
+    <p>
+    <label class="clsPostLabel" for="username">Username</label>
+    <input class="clsPostInput" id="username" name="username" ></input>
+    <label class="clsPostLabel" for="inputNewPostContent">password</label>
+    <input class="clsPostInput" type="password" id="password" name="password"></input>
+    
+     <button type="submit" class="btn btn-primary me-2 clsPostButton">Sign Up!</button>
+    <a href="/login" class="">Login instead</a>
+  </p>
+  </form>
 </div>
+
+

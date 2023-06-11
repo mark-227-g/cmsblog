@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
 // Route to create a new account
 router.post('/', (req, res) => {
   console.log('Request body:', req.body);
-  const { username, email, password} = req.body;
+  const { username, password} = req.body;
   console.log(`Username: ${username},  Password: ${password}`);
 
   // Check if username and email are unique
