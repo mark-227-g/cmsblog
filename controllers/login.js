@@ -4,7 +4,10 @@ const bcrypt = require('bcryptjs');
 const blogUser = require('../models/BlogUser.js');
 
 router.get('/', (req, res) => {
-  console.log("session variables: "+req.session)
+//  console.log("session variables: "+req.session);
+  if (req.session.loggedIn) {
+    res.redirect('/')
+  }
   res.render('login');
 });
 
@@ -21,7 +24,9 @@ router.post('/', (req, res) => {
             console.log(`Passwords match: ${match}`);
             if (match) {
               // Passwords match
-
+              req.session.loggedIn=true;
+              let currentDate=new Date();
+              req.session.lastActivity = currentDate;
               req.session.currentUserName = username;
               req.session.currentUserId = user.id;
               console.log(req.session)
@@ -44,6 +49,18 @@ router.post('/', (req, res) => {
       console.error('Error:', error);
       res.status(500).json({ message: 'Internal server error' });
     });
+});
+
+// Logout
+router.post('/logout', (req, res) => {
+  // When the user logs out, the session is destroyed
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
+  }
 });
 
 module.exports = router;
