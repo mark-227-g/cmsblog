@@ -45,19 +45,19 @@ function createPostButtonClick(event) {
 
     //alert("event " +event.currentTarget.value+" post add");
     console.log(event.currentTarget);
-    //createNewPost(inputNewPostTitle,inputNewPostContent,currentUser)
-    console.log($("#inputNewPostTitle").val(),$("#inputNewPostContent").val(),currentUser);
-    createNewPost($("#inputNewPostTitle").val(),$("#inputNewPostContent").val(),currentUser);
+    //createNewPost(inputNewPostTitle,inputNewPostContent,currentUserName)
+    console.log($("#inputNewPostTitle").val(),$("#inputNewPostContent").val(),currentUserName);
+    createNewPost($("#inputNewPostTitle").val(),$("#inputNewPostContent").val(),currentUserName);
     $("#newPostCard").addClass("clsCardHidden")
   }
   function editPostButtonClick(event) {
-   // createNewPost($("#inputNewPostTitle").val(),$("#inputNewPostContent").val(),currentUser);
+   // createNewPost($("#inputNewPostTitle").val(),$("#inputNewPostContent").val(),currentUserName);
 
     let changedContent=$(this).siblings("textarea#inputEditPostContent");
     let changedTitle=$(this).siblings("textarea#inputEditPostTitle");
   //  console.log(event.currentTarget.value)
    // console.log(`${changedTitle.val()} ${changedContent.val()}`);
-    editPost(event.currentTarget.value,changedTitle.val(),changedContent.val(),currentUser);
+    editPost(event.currentTarget.value,changedTitle.val(),changedContent.val(),currentUserName);
     console.log("edit: "+event.currentTarget.value);
   };
 
